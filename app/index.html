@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" ng-app="phonecatApp">
+<html lang="en" ng-app="phonecatApp" ng-controller="PhoneListCtrl">
 
 <head>
 	<meta charset="utf-8">
-	<title>Google Phone Gallery</title>
+	<title>Google Phone Gallery: {{query}}</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="css/app.css">
 	<script src="bower_components/angular/angular.js"></script>
@@ -11,10 +11,12 @@
 	<script src="js/controllers.js"></script>
 </head>
 
-<body ng-controller="PhoneListCtrl">
+<body>
 
+	<input type="text" ng-model="query" />
+	<p>query: {{query}}</p>
 	<ul>
-		<li ng-repeat="phone in phones">
+		<li ng-repeat="phone in phones | filter: query">
 			<span>{{phone.name}}</span>
 			<p>
 				{{phone.snippet}}
@@ -22,6 +24,17 @@
 		</li>
 		<p>Total number of phones: {{phones.length}}</p>
 	</ul>
+
+	<table>
+		<tr>
+			<th>Column 1</th>
+			<th>Column 2</th>
+			<th>Column 3</th>
+		</tr>
+		<tr ng-repeat="i in [0,1,2,3,4,5]">
+			<td ng-repeat="j in [0,1,2]">({{i}}, {{j}})</td>
+		</tr>
+	</table>
 </body>
 
 </html>
