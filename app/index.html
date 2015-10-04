@@ -7,38 +7,13 @@
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="css/app.css">
 	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/controllers.js"></script>
 </head>
 
 <body>
-
-	Search:
-	<input type="text" ng-model="query" /> Sort By:
-	<select ng-model="orderProp">
-		<option value="name">Alphabetical</option>
-		<option value="age">Newest</option>
-	</select>
-	<p>query: {{query}}</p>
-	<ul class="phones">
-		<li ng-repeat="phone in phones | filter: query | orderBy: orderProp" class="thumbnail">
-			<a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}" /></a>
-			<a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-			<p>{{phone.snippet}}</p>
-		</li>
-		<p>Total number of phones: {{phones.length}}</p>
-	</ul>
-
-	<table>
-		<tr>
-			<th>Column 1</th>
-			<th>Column 2</th>
-			<th>Column 3</th>
-		</tr>
-		<tr ng-repeat="i in [0,1,2,3,4,5]">
-			<td ng-repeat="j in [0,1,2]">({{i}}, {{j}})</td>
-		</tr>
-	</table>
+	<div ng-view></div>
 </body>
 
 </html>
