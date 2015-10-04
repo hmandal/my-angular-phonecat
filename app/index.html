@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Google Phone Gallery: {{query}}</title>
+	<title ng-bind-template="Google Phone Gallery: {{query}}">Google Phone Gallery</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="css/app.css">
 	<script src="bower_components/angular/angular.js"></script>
@@ -13,14 +13,18 @@
 
 <body>
 
-	<input type="text" ng-model="query" />
+	Search:
+	<input type="text" ng-model="query" /> Sort By:
+	<select ng-model="orderProp">
+		<option value="name">Alphabetical</option>
+		<option value="age">Newest</option>
+	</select>
 	<p>query: {{query}}</p>
-	<ul>
-		<li ng-repeat="phone in phones | filter: query">
-			<span>{{phone.name}}</span>
-			<p>
-				{{phone.snippet}}
-			</p>
+	<ul class="phones">
+		<li ng-repeat="phone in phones | filter: query | orderBy: orderProp" class="thumbnail">
+			<a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}" /></a>
+			<a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+			<p>{{phone.snippet}}</p>
 		</li>
 		<p>Total number of phones: {{phones.length}}</p>
 	</ul>
