@@ -37,7 +37,7 @@ describe('PhoneCat App', function () {
 
 			query.sendKeys('nexus');
 			expect(browser.getTitle()).toMatch(/Google Phone Gallery:\s*$/);
-//			expect(browser.getTitle()).toMatch(/Google Phone Gallery: nexus$/);
+			//			expect(browser.getTitle()).toMatch(/Google Phone Gallery: nexus$/);
 		});
 
 		it('should be possible to control phone order via the drop down select box', function () {
@@ -53,15 +53,15 @@ describe('PhoneCat App', function () {
 			query.sendKeys('tablet');
 
 			expect(getNames()).toEqual([
-				"Motorola XOOM\u2122 with Wi-Fi",
-    			"MOTOROLA XOOM\u2122"
+				"1) Motorola XOOM\u2122 with Wi-Fi",
+    			"2) MOTOROLA XOOM\u2122"
 			]);
 
 			element(by.model('orderProp')).element(by.css('option[value="name"]')).click();
 
 			expect(getNames()).toEqual([
-				"MOTOROLA XOOM\u2122",
-    			"Motorola XOOM\u2122 with Wi-Fi"
+				"2) MOTOROLA XOOM\u2122",
+    			"1) Motorola XOOM\u2122 with Wi-Fi"
 			]);
 		});
 
@@ -84,8 +84,13 @@ describe('PhoneCat App', function () {
 		});
 
 
-		it('should display placeholder page with phoneId', function () {
-			expect(element(by.binding('phoneId')).getText()).toBe('nexus-s');
+		it('should display nexus-s page', function () {
+			expect(element(by.binding('phone.name')).getText()).toBe('Nexus S');
+		});
+		
+		it('should display 4 phone image thumbnails on nexus-s page', function () {
+			var thumbList = element.all(by.repeater('img in phone.images'));
+			expect(thumbList.count()).toBe(4);
 		});
 	});
 });
