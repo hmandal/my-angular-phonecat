@@ -1,5 +1,7 @@
 language: node_js
 node_js:
+  - "node"
+  - 4.1
   - 0.10
 
 env: BROWSERS=firefox E2E_BROWSERS=Firefox
@@ -10,4 +12,4 @@ before_script:
   - npm run update-webdriver
 
 script:
-  - scripts/private/test-all.sh
+  - chmod a+x scripts/private/test-all.sh
