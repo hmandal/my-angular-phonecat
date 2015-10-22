@@ -1,4 +1,4 @@
-# AngularJS Phone Catalog Tutorial Application  
+# AngularJS Phone Catalog Tutorial Application[![Build Status](https://travis-ci.org/hmandal/my-angular-phonecat.svg?branch=master)](https://travis-ci.org/hmandal/my-angular-phonecat)  
 Credits go to Google and the developers of this tutorial :)
 ## Overview
 
