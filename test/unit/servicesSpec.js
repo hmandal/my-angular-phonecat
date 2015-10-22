@@ -1,11 +1,12 @@
 'use strict';
 
-/* jasmine specs for services go here */
-describe('service', function () {
+describe('service', function() {
 
-	beforeEach(module('phonecatApp'));
+  // load modules
+  beforeEach(module('phonecatApp'));
 
-	it('check the existence of Phone factory', inject(function (Phone) {
-		expect(Phone).toBeDefined();
-	}));
+  // Test service availability
+  it('check the existence of Phone factory', inject(function(Phone) {
+      expect(Phone).toBeDefined();
+    }));
 });
