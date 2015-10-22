@@ -1,5 +1,5 @@
-# AngularJS Phone Catalog Tutorial Application
-
+# AngularJS Phone Catalog Tutorial Application  
+Credits go to Google and the developers of this tutorial :)
 ## Overview
 
 This application takes the developer through the process of building a web-application using
