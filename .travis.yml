@@ -11,8 +11,6 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - npm run update-webdriver
   - sleep 3 # give xvfb some time to start
-  - rackup  # start a Web server
-  - sleep 3 # give Web server some time to bind to sockets, etc
 
 script:
   - chmod a+x scripts/private/test-all.sh
